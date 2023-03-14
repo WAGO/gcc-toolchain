@@ -1,0 +1,178 @@
+manifest_format=1.6
+
+# Note that for ABE, these parameters are not used
+# Component data for dejagnu
+dejagnu_url=https://artifactory.wago.local/devt-generic-prod-local/developer.arm.com/gnu/11.2-2022.02/src
+dejagnu_md5sum=411ebab4f6373c7ef110e763a0894652
+dejagnu_filespec=dejagnu-21f2ff7.tar.xz
+dejagnu_mingw_only="no"
+dejagnu_linuxhost_only="no"
+dejagnu_staticlink="yes"
+
+# Component data for python
+python_url=https://artifactory.wago.local/devt-generic-prod-local/developer.arm.com/gnu/11.2-2022.02/src
+python_filespec=python-2.7.4-mingw32.tar.xz
+python_md5sum=9b3092eff5508c4802936dfe4f5225ef
+python_mingw_only="yes"
+python_linuxhost_only="no"
+python_staticlink="yes"
+
+# Component data for gmp
+gmp_url=https://artifactory.wago.local/devt-generic-prod-local/developer.arm.com/gnu/11.2-2022.02/src
+gmp_filespec=gmp.tar.xz
+gmp_md5sum=dd93b8528c4c5a84922df9f8fff45703
+gmp_mingw_only="no"
+gmp_linuxhost_only="no"
+gmp_configure="--enable-cxx --enable-fft"
+gmp_staticlink="yes"
+
+# Component data for mpfr
+mpfr_url=https://artifactory.wago.local/devt-generic-prod-local/developer.arm.com/gnu/11.2-2022.02/src
+mpfr_filespec=mpfr.tar.xz
+mpfr_md5sum=97974873dbc922d4e97164222d684860
+mpfr_mingw_only="no"
+mpfr_linuxhost_only="no"
+mpfr_configure="--with-gmp=${local_builds}/destdir/${host}"
+mpfr_staticlink="yes"
+
+# Component data for mpc
+mpc_url=https://artifactory.wago.local/devt-generic-prod-local/developer.arm.com/gnu/11.2-2022.02/src
+mpc_filespec=mpc.tar.xz
+mpc_md5sum=b3795f97a98b7775daab8936d04585d9
+mpc_mingw_only="no"
+mpc_linuxhost_only="no"
+mpc_configure="--with-gmp=${local_builds}/destdir/${host} --with-mpfr=${local_builds}/destdir/${host}"
+mpc_staticlink="yes"
+
+# Component data for expat
+expat_url=https://artifactory.wago.local/devt-generic-prod-local/developer.arm.com/gnu/11.2-2022.02/src
+expat_filespec=libexpat.tar.xz
+expat_md5sum=37c55a483dfaa95d9dcb44b872c36dbd
+expat_mingw_only="yes"
+expat_linuxhost_only="no"
+expat_staticlink="yes"
+
+# Component data for libiconv
+libiconv_url=https://artifactory.wago.local/devt-generic-prod-local/developer.arm.com/gnu/11.2-2022.02/src
+libiconv_filespec=libiconv.tar.xz
+libiconv_md5sum=60318808e4a93d53276a3d3cfed25c05
+libiconv_mingw_only="yes"
+libiconv_linuxhost_only="no"
+libiconv_staticlink="yes"
+
+# Component data for gcc
+gcc_url=https://artifactory.wago.local/devt-generic-prod-local/developer.arm.com/gnu/11.2-2022.02/src
+gcc_filespec=gcc.tar.xz
+gcc_makeflags="MAKEINFOFLAGS=--force"
+gcc_md5sum=32ffcce76e63e020e71aad66954d20c8
+gcc_mingw_only="no"
+gcc_linuxhost_only="no"
+gcc_configure=
+gcc_mingw_extraconf="--with-libiconv-prefix=${local_builds}/destdir/${host}/usr --with-system-zlib=no"
+gcc_staticlink="no"
+gcc_stage1_flags="--with-mpc=${local_builds}/destdir/${host} --with-mpfr=${local_builds}/destdir/${host} --with-gmp=${local_builds}/destdir/${host} --without-headers --with-newlib --without-cloog --without-isl --disable-libatomic --disable-libsanitizer --disable-libssp --disable-libgomp --disable-libmudflap --disable-libquadmath --enable-checking=release --enable-languages=c,c++ --with-sysroot={local_builds}/sysroot-arm-none-linux-gnueabihf --enable-fix-cortex-a53-843419 --disable-multilib --disable-libstdcxx --disable-shared --disable-threads --disable-libvtv --with-arch=armv7-a --with-fpu=neon --with-float=hard --with-mode=arm --with-arch=armv7-a --enable-linker-build-id --with-bugurl=https://bugs.linaro.org/"
+gcc_stage2_flags="--with-mpc=${local_builds}/destdir/${host} --with-mpfr=${local_builds}/destdir/${host} --with-gmp=${local_builds}/destdir/${host} --enable-shared --without-cloog --without-isl --disable-libmudflap --disable-libssp --disable-libgomp --enable-gnu-indirect-function --enable-languages=c,c++ --with-build-sysroot=${sysroots} --with-sysroot=${local_builds}/destdir/${host}/${target}/libc --prefix= --target=arm-none-linux-gnueabihf --enable-checking=release --enable-fix-cortex-a53-843419 --with-bugurl=https://bugs.linaro.org/ --with-fpu=neon --with-float=hard --with-mode=arm --with-arch=armv7-a --enable-linker-build-id"
+
+# Component data for binutils
+binutils_url=ssh://git@svgithub01001.wago.local/BU-Automation
+binutils_revision=c2b22853e383f6fa315f34b7ac1d7f7e32af0117
+binutils_filespec=mirrors.linaro.gcc-binutils-gdb.git
+binutils_mingw_only="no"
+binutils_linuxhost_only="no"
+binutils_configure="--enable-64-bit-bfd --target=arm-none-linux-gnueabihf --with-bugurl=https://bugs.linaro.org/ --enable-gold --enable-initfini-array --enable-plugins --disable-doc --disable-gdb --disable-gdbtk --disable-nls --disable-tui --disable-werror --without-gdb --without-python --without-x --prefix= --with-sysroot=${sysroots}"
+binutils_staticlink="yes"
+
+# Component data for gdb
+gdb_url=ssh://git@svgithub01001.wago.local/BU-Automation
+gdb_revision=a10d1f2c33a9a329f3a3006e07cfe872a7cc965b
+gdb_filespec=mirrors.linaro.gcc-binutils-gdb.git
+gdb_mingw_only="no"
+gdb_linuxhost_only="no"
+gdb_configure="--enable-64-bit-bfd --enable-targets=arm-none-eabi,arm-none-linux-gnueabihf,armeb-none-eabi,armeb-none-linux-gnueabihf --target=arm-none-linux-gnueabihf --with-bugurl=https://bugs.linaro.org/ --enable-initfini-array --enable-plugins --enable-tui --disable-binutils --disable-sim --disable-as --disable-ld --disable-doc --disable-gdbtk --disable-nls --disable-werror --without-x --prefix= --with-sysroot=${sysroots} --with-python=/usr/bin/python3"
+gdb_mingw_extraconf="--disable-tui --with-python=${local_snapshots}/python-2.7.4-mingw32 CFLAGS=-I${local_builds}/destdir/${host}/usr/include LDFLAGS=-L${local_builds}/destdir/${host}/usr/lib"
+gdb_staticlink="yes"
+
+# Component data for linux
+linux_url=ssh://git@svgithub01001.wago.local/BU-Automation
+linux_revision=0f7c162c1df596e0bba04c26fc9cc497983bf32b
+linux_filespec=mirrors.linaro.gcc-linux-stable.git
+linux_md5sum=626292ab8b495e81efe6ee45baf6b817
+linux_mingw_only="no"
+linux_linuxhost_only="no"
+linux_staticlink="yes"
+
+# Component data for glibc
+glibc_url=ssh://git@svgithub01001.wago.local/BU-Automation
+glibc_revision=008003dc6e83439c5e04a744b7fd8197df19096e
+glibc_filespec=mirrors.linaro.gcc-glibc.git
+glibc_makeflags="PARALLELMFLAGS=-j32"
+glibc_mingw_only="no"
+glibc_linuxhost_only="no"
+glibc_configure="--disable-profile --without-gd --enable-obsolete-rpc --with-headers=${local_builds}/destdir/${host}/${target}/libc/usr/include libc_cv_forced_unwind=yes libc_cv_c_cleanup=yes --without-selinux --disable-werror"
+
+# Component data for qemu
+qemu_url=ssh://git@svgithub01001.wago.local/BU-Automation
+qemu_branch=stable-5.0
+qemu_revision=386b2a5767f7642521cd07930c681ec8a6057e60
+qemu_filespec=mirrors-qemu.git
+qemu_mingw_only="no"
+qemu_linuxhost_only="yes"
+qemu_configure="--target-list=arm-linux-user"
+qemu_staticlink="yes"
+
+clibrary=glibc
+target=arm-linux-gnueabihf
+manifestid=191ce77be4980d68af438eb8286f591f5c4614d7
+
+ ##############################################################################
+ # Everything below this line is only for informational purposes for developers
+ ##############################################################################
+
+# Build machine data
+build: linux
+host: x86_64-unknown-linux-gnu
+kernel: 4.18.0-372.13.1.el8_6.x86_64
+hostname: linaro-9.2-2019.12-arm-linux-gnueabihf
+distribution: focal
+host_gcc: gcc version 9.3.0 (Ubuntu 9.3.0-17ubuntu1~20.04) 
+
+# These aren't used in the repeat build. just a sanity check for developers
+build directory: /workspace/out/arm-linux-gnueabihf/out/arm-linux-gnueabihf/build-linaro/builds
+sysroot directory: /workspace/out/arm-linux-gnueabihf/out/arm-linux-gnueabihf/build-linaro/sysroots/arm-linux-gnueabihf
+snapshots directory: /workspace/out/arm-linux-gnueabihf/out/arm-linux-gnueabihf/build-linaro/snapshots
+git reference directory: 
+
+abe_url=git@svgithub01001.wago.local:BU-Automation/mirrors.linaro.gcc-abe.git
+abe_branch=branch=
+abe_revision=7d42c4519887b4fc5dc9e7d83e11af872691b616
+abe_filespec=mirrors.linaro.gcc-abe.git
+abe_configure=""
+
+--------------------- binutils ----------------------
+commit 5f62caec8175cf80a29f2bcab2c5077cbfae8c89
+Author: GDB Administrator <gdbadmin@sourceware.org>
+Date:   Sat Jan 22 00:00:50 2022 +0000
+
+    Automatic date update in version.in
+
+--------------------- glibc ----------------------
+commit 008003dc6e83439c5e04a744b7fd8197df19096e
+Author: H.J. Lu <hjl.tools@gmail.com>
+Date:   Sat Jan 29 05:22:31 2022 -0800
+ 
+    tst-socket-timestamp-compat.c: Check __TIMESIZE [BZ #28837]
+    
+    time_t size is defined by __TIMESIZE, not __WORDSIZE.  Check __TIMESIZE,
+    instead of __WORDSIZE, for time_t size.  This fixes BZ #28837.
+     
+    (cherry pick from commit 77a602ebb0769e7ccc5f9f8e06f7fffe66f69dfc)
+
+--------------------- abe ----------------------
+commit 7d42c4519887b4fc5dc9e7d83e11af872691b616
+Author: Andrej Gantvorg <andrej.gantvorg@wago.com>
+Date:   Mon Jul 25 15:13:48 2022 +0200
+
+    re-enable address space randomization for qemu.
+    
+    Disabling it caused permission related issues on docker@focal-fossa
+
