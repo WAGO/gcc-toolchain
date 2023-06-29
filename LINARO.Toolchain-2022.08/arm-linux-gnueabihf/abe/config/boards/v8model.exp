@@ -1,0 +1,37 @@
+load_generic_config tcwg-local
+
+# This is the model itself. It's bit brain dead in that it only can be executed with a
+# full absolute path, and can be installed anywhere in the file system.
+if {[info exists env(FOUNDATION_MODEL)]} {
+    set model "$env(FOUNDATION_MODEL)"
+} else {
+    error "Set FOUNDATION_MODEL in your environment to execute remote tests!"
+}
+
+case "$target_triplet" in {
+    { "aarch64_be-*" } {
+	set model "$model --bigendian"
+    }
+}
+
+set_board_info is_simulator 1
+
+# --gicv3 option below is to avoid a FV's warning, which looks like an error:
+# ERROR: cpu0.gicv3_cpu_if ....
+set board_info($board,exec_shell) "[board_info $board exec_shell] $model --quiet --gicv3 --image"
+
+# For bare metal we use libgloss, but for linux hosts this is wrong.
+if { [ istarget "aarch64*-elf"] } {
+    set_board_info cflags  "[libgloss_include_flags] -specs=aem-ve.specs"
+    set_board_info ldflags "[libgloss_link_flags] [newlib_link_flags]"
+}
+
+# Can't pass arguments to the program.
+set_board_info noargs 1
+
+# No support for signals.
+set_board_info gdb,nosignals 1
+
+# Define ld_library_path variable to workaround asan testsuite referring to it
+# without checking.
+set ld_library_path ""

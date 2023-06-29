@@ -1,0 +1,11 @@
+global env
+if {[info exists env(SCHROOT_PORT)]} {
+    # See https://git.linaro.org/ci/dockerfiles.git/blob/HEAD:/tcwg-buildslave/.ssh/config
+    # For the master copy of these settings.
+    # We need to duplicate them here to handle bare IP addresses of containers.
+    set_board_info rsh_prog "/usr/bin/ssh -o Port=[getenv SCHROOT_PORT] -o BatchMode=yes -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=FATAL -o ControlMaster=auto -o ControlPersist=5m -o ControlPath=/tmp/ssh-%u-%r@%h:%p"
+    set_board_info rcp_prog "/usr/bin/scp -o Port=[getenv SCHROOT_PORT] -o BatchMode=yes -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=FATAL -o ControlMaster=auto -o ControlPersist=5m -o ControlPath=/tmp/ssh-%u-%r@%h:%p"
+}
+if {[info exists env(SCHROOT_SHARED_DIR)]} {
+    set_board_info shared_dir "[getenv SCHROOT_SHARED_DIR]"
+}
