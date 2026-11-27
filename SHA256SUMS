@@ -1,0 +1,10 @@
+7a55c4b8b8fe0db393d82ebbf3e9f2e0cdcd4be5b38793eb134ba63a1ede9e2d  ybp-glibc-x86_64-wago-toolchain-aarch64-wago-aarch64-toolchain-03.00.05-1-3686ba00f3.host.manifest
+78409cfedbee10cadd235d711462b8e3478ba2a76f3d0acd8a5cdf2a81efd2c1  ybp-glibc-x86_64-wago-toolchain-aarch64-wago-aarch64-toolchain-03.00.05-1-3686ba00f3-host.spdx.tar.zst
+daebca8c04eb4887536ba06ffe5d5d59da21c413eae7d471c473c1cb88e9848f  ybp-glibc-x86_64-wago-toolchain-aarch64-wago-aarch64-toolchain-03.00.05-1-3686ba00f3.sh
+b3095b1d7c072b84d3bb19d5862bbbf878ee66401c716a2029165269fc0dde9e  ybp-glibc-x86_64-wago-toolchain-aarch64-wago-aarch64-toolchain-03.00.05-1-3686ba00f3.target.manifest
+7e37c67bd2448aa052bcb7f5472d5c59996de641e8ad3283d783fa3b2a72ec1f  ybp-glibc-x86_64-wago-toolchain-aarch64-wago-aarch64-toolchain-03.00.05-1-3686ba00f3-target.spdx.tar.zst
+7695e4ba50e8383431102bd8962dd639391ae567ccb5edcf336cee9a9efbb521  ybp-glibc-x86_64-wago-toolchain-cortexa8hf-neon-wago-arm-toolchain-03.00.05-1-3686ba00f3.host.manifest
+7f2e5cd4ec6484fdb9d20ad32c8680b9b8f16d0d9ffe73f5f71775a9c0b00f73  ybp-glibc-x86_64-wago-toolchain-cortexa8hf-neon-wago-arm-toolchain-03.00.05-1-3686ba00f3-host.spdx.tar.zst
+59b126a5e7c324cae6a6273864b29bfe37a9faf5f75c06809012920e37190dfb  ybp-glibc-x86_64-wago-toolchain-cortexa8hf-neon-wago-arm-toolchain-03.00.05-1-3686ba00f3.sh
+00344883419be5b4c7d59f685c5be10f80234d0c900d7a2b7313352b7f5e1c4a  ybp-glibc-x86_64-wago-toolchain-cortexa8hf-neon-wago-arm-toolchain-03.00.05-1-3686ba00f3.target.manifest
+0d9fec7a6458c4287cb017982a165fca639bdf7c94b6734c2302a5d5e9535a4b  ybp-glibc-x86_64-wago-toolchain-cortexa8hf-neon-wago-arm-toolchain-03.00.05-1-3686ba00f3-target.spdx.tar.zst
